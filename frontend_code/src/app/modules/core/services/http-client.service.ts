@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { AuthTokenService } from '../utils';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class HttpClient {
@@ -14,7 +15,7 @@ export class HttpClient {
         } else {
             // TODO(npahwa) Need to move this hardcoded url to config file or in envirnoment variables.
             // Also need to do redirection with the help of services
-            window.location.href = 'http://localhost:3002/authenticate';
+            window.location.href = `${environment.apiBaseUrl}/authenticate`;
         }
     }
 

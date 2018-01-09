@@ -1,4 +1,7 @@
 import { ErrorHandler, Injectable } from '@angular/core';
+
+import { environment } from '../../../../environments/environment';
+
 @Injectable()
 
 export class ExceptionHandler extends ErrorHandler {
@@ -12,7 +15,7 @@ export class ExceptionHandler extends ErrorHandler {
                 case 401:
                     // TODO(npahwa) Need to move this hardcoded url to config file or in envirnoment variables.
                     // Also need to do redirection with the help of services
-                    window.location.href = 'http://localhost:3002/authenticate';
+                    window.location.href = `${environment.apiBaseUrl}/authenticate`;
                     break;
                 case 403:
                     // To do here route from here

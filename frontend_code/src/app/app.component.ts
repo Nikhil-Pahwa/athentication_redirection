@@ -5,13 +5,15 @@ import 'rxjs/add/operator/map';
 import { RemoteUser, User, UserFromRemote } from './shared/resources/';
 import { SessionService, HttpClient } from './modules/core/';
 
+import { environment } from '../environments/environment';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
+  title = environment.name;
   private user: User;
   constructor(private sessionService: SessionService, private httpClient: HttpClient) {
   }
@@ -22,7 +24,7 @@ export class AppComponent implements OnInit {
 
   // TODO (npahwa) Need to move this into service and replace the hardcoded url with config url
   private getUserDetail() {
-    this.httpClient.get('http://localhost:3002/user')
+    this.httpClient.get(`${environment.apiBaseUrl}/user`)
       .map(res => res.json())
       .map((remoteUser: RemoteUser) => {
         return UserFromRemote(remoteUser);
