@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:3002',
+  // apiBaseUrl: 'http://localhost:3002',
+  apiBaseUrl: 'https://express-app-mtqoqbpfkb.now.sh',
   name: 'Dev App'
 };
